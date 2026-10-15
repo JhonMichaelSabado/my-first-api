@@ -8,9 +8,12 @@ const books = [
     { id: 3, title: "1984", author: "George Orwell" },
 ];
 
-
 app.get("/", (req, res) => {
     res.send("Hello! My first server is running.");
+});
+
+app.get("/books", (req, res) => {
+    res.status(200).json(books);
 });
 
 app.get("/books/:id", (req, res) => {
@@ -23,8 +26,7 @@ app.get("/books/:id", (req, res) => {
     res.status(200).json(book);
 });
 
-
-
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
